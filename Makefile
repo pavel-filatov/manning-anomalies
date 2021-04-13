@@ -8,7 +8,11 @@ help:
 
 .PHONY: run
 run: ## Run Jupyter in Docker
-	docker run -it -v $(PWD)/jupyter/notebooks:/src/notebooks -v $(PWD)/jupyter/data:/src/data -p 9999:9999 filatov_py/jupyter
+	docker run -it \
+		-v $(PWD)/jupyter/notebooks:/src/notebooks \
+		-v $(PWD)/jupyter/data:/src/data \
+		-v $(PWD)/model:/src/model \
+		-p 9999:9999 filatov_py/jupyter
 
 .PHONY: build
 build: ## Build Docker image
