@@ -20,10 +20,9 @@ run-jupyter: ## Run Jupyter in Docker
 .PHONY: train
 train: ## Train the model
 	docker run \
-		-v $(PWD)/jupyter/notebooks:/src/notebooks \
-		-v $(PWD)/jupyter/data:/src/data \
-		-v $(PWD)/service/model:/src/model \
-		filatov_py/jupyter jupyter nbconvert --to notebook --execute /src/notebooks/train.ipynb
+		-v $(PWD)/jupyter:/src \
+		-v $(PWD)/service/model:/model \
+		filatov_py/jupyter python /src/train.py
 
 .PHONY: build-jupyter
 build-jupyter: ## Build Docker image containing jupyter
