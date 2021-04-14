@@ -33,7 +33,7 @@ build-jupyter: ## Build Docker image containing jupyter
 
 .PHONY: run-webapp
 run-webapp:  ## Run web service to detect anomalies
-	docker run --name lp-service -t -v $(PWD)/service:/app -p 8000:8000 filatov_py/lp-service
+	docker run --name lp-service -it -v $(PWD)/service:/app -p 8000:8000 filatov_py/lp-service
 
 .PHONY: build-webapp
 build-webapp:  ## Build Docker image containing web application
